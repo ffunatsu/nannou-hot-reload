@@ -2,7 +2,6 @@
 resolver = "2"
 members = ["lib", "nannou_dynamic"]
 
-
 [package]
 name = "{{project-name}}"
 version = "0.1.0"
@@ -10,10 +9,9 @@ authors = ["{{authors}}"]
 edition = "2021"
 
 [dependencies]
-hot-lib-reloader = "^0.6.1"
+hot-lib-reloader = "^0.8.2"
 lib = { path = "./lib" }
 nannou = { package = "nannou_dynamic", path = "./nannou_dynamic" }
-
 
 [profile.dev]
 opt-level = 1

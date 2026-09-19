@@ -3,13 +3,13 @@
 use nannou::prelude::*;
 
 pub struct Model {
-    window: window::Id,
+    window: Entity,
     pub was_updated: bool,
     state: State,
 }
 
 impl Model {
-    pub fn for_window(window: window::Id) -> Self {
+    pub fn for_window(window: Entity) -> Self {
         Self {
             window,
             state: State::default(),
@@ -22,14 +22,10 @@ impl Model {
 pub struct State {}
 
 #[no_mangle]
-pub fn event(app: &App, model: &mut Model, event: WindowEvent) {}
+pub fn update(app: &App, model: &mut Model) {}
 
 #[no_mangle]
-pub fn update(app: &App, model: &mut Model, update: Update) {}
-
-#[no_mangle]
-pub fn view(app: &App, model: &Model, frame: Frame) {
+pub fn view(app: &App, model: &Model) {
     let draw = app.draw();
     draw.background().color(WHITE);
-    draw.to_frame(app, &frame).unwrap();
 }
